@@ -1,0 +1,93 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
+}}
+
+<section>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Planungsmatrizen</h2>
+    <div>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-action="open-new-planmatrix-modal">
+            {{#str}} new, local_planmatrix {{/str}}
+        </button>
+    </div>
+</div>
+    <p>Erstellen, verwalten und teilen Sie Ihre Planungsmatrizen.</p>
+</section>
+
+<section class="mb-5">
+    <h2>Meine Unterrichtspläne</h2>
+
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Stundenthema</th>
+                        <th>Klassenstufe</th>
+                        <th>Kurs</th>
+                        <th>Tags</th>
+                        <th>Status</th>
+                        <th>Zuletzt geändert</th>
+                        <th>Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Einführung in Algorithmen</td>
+                        <td>Klasse 8</td>
+                        <td>Informatik</td>
+                        <td>prozessbezogene Informationen</td>
+                        <td>Entwurf</td>
+                        <td>04.05.2026</td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                Öffnen
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                <i class="icon fa fa-ellipsis-v fa-fw m-0" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Datenbanken Grundlagen</td>
+                        <td>Klasse 10</td>
+                        <td>Informatik</td>
+                        <td>prozessbezogene Informationen</td>
+                        <td>Aktiv</td>
+                        <td>03.05.2026</td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                Öffnen
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                <i class="icon fa fa-ellipsis-v fa-fw m-0" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Für mich freigegebene Pläne</h2>
+    <p>Hier kommt eine Tabelle mit Filterung hin</p>
+</section>

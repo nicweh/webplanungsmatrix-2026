@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/planmatrix/db" VERSION="20260511" COMMENT="XMLDB file for Moodle local/planmatrix"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_planmatrix_matrices" COMMENT="Stores the basic information for individual planning matrices, such as title, description, related course, creator, creation time, and last modification time.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Thema der Planungsmatrize"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Erstellungszeitpunkt als Unix-Timestamp"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Letzte Änderung als Unix-Timestamp"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="planmatrix_user_foreign_key" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_planmatrix_rows" COMMENT="Default comment for the table, please edit me">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="matrixid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID der zugehörigen Planungsmatrix aus der Tabelle local_planmatrix_matrices."/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Sortierposition der Zeile innerhalb der Planungsmatrix für Drag-and-Drop-Anordnung."/>
+        <FIELD NAME="duration" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Zeitangabe oder Dauer der Zeile, zum Beispiel Minuten, Unterrichtsstunde oder Phase."/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Inhaltliche Beschreibung der Matrixzeile."/>
+        <FIELD NAME="method" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Methode oder methodisch-didaktisches Vorgehen in dieser Matrixzeile."/>
+        <FIELD NAME="transfer" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="[Beschreibung noch anpassen] Transfer, Anwendung oder Sicherung des Gelernten in dieser Matrixzeile."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_planmatrix_matrix_competencies" COMMENT="Zuordnung der Matrix mit allen Kompentenzen">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_planmatrix_schoolcourses" COMMENT="Schulkurse außerhalb von Moodle">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_planmatrix_userprefs" COMMENT="automatische Speicherung">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
